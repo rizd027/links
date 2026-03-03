@@ -1,0 +1,10 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Project-specific
+.gemini/
+.agents/
+_agent/
+brain/
+/tmp/

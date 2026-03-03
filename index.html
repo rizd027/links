@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@rizddf | LinkTree</title>
+  <!-- Google Fonts - Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Flat Favicon (Link Icon) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23FF6B8B' d='M273 273l-97 97a7 7 0 0 1-10 0l-45-45a7 7 0 0 1 0-10l97-97a7 7 0 0 1 10 0l45 45a7 7 0 0 1 0 10zm113-145a106 106 0 0 0-150 0l-30 30a7 7 0 0 0 0 10l45 45a7 7 0 0 0 10 0l30-30a43 43 0 0 1 61 61l-105 105a43 43 0 0 1-61 0l-30-30a7 7 0 0 0-10 0l-45 45a7 7 0 0 0 0 10l30 30a106 106 0 0 0 150 0l105-105a106 106 0 0 0 0-150z'/></svg>">
+
+</head>
+
+<body>
+  <!-- Animated Background -->
+  <div class="background-container">
+    <!-- Bubbles -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <!-- Clouds -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+
+    <!-- Dotted Lines -->
+    <div class="dotted-line dotted-line-1"></div>
+    <div class="dotted-line dotted-line-2"></div>
+
+    <!-- Stars -->
+    <div class="star star-1">✦</div>
+    <div class="star star-2">✦</div>
+    <div class="star star-3">✦</div>
+    <div class="star star-4">✦</div>
+    <div class="star star-5">✦</div>
+    <div class="star star-6">✦</div>
+
+    <!-- Thematic Background Icons -->
+    <i class="fas fa-code bg-icon icon-tech-1"></i>
+    <i class="fas fa-code bg-icon icon-tech-2"></i>
+    <i class="fas fa-atom bg-icon icon-physics-1"></i>
+    <i class="fas fa-atom bg-icon icon-physics-2"></i>
+    <i class="fas fa-cog bg-icon icon-eng-1"></i>
+    <i class="fas fa-cog bg-icon icon-eng-2"></i>
+    <i class="fas fa-pencil bg-icon icon-editor-1"></i>
+    <i class="fas fa-pencil bg-icon icon-editor-2"></i>
+    <i class="fas fa-camera bg-icon icon-photo-1"></i>
+    <i class="fas fa-camera bg-icon icon-photo-2"></i>
+    <i class="fas fa-bolt bg-icon icon-extra-1"></i>
+    <i class="fas fa-flask bg-icon icon-extra-2"></i>
+    <i class="fas fa-crown bg-icon icon-supreme"></i>
+    <i class="fas fa-fire bg-icon icon-survival"></i>
+    <i class="fas fa-bottle-water bg-icon icon-bottle"></i>
+    <i class="fas fa-coffee bg-icon icon-coffee"></i>
+    <i class="fas fa-gamepad bg-icon icon-game"></i>
+  </div>
+
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <div class="card">
+      <!-- Header Section -->
+      <header class="header">
+        <div class="avatar-container">
+          <div class="avatar-ring"></div>
+          <div class="avatar">
+            <img src="photo-profile.jpg" alt="Profile Photo">
+          </div>
+        </div>
+        <div class="name-wrapper">
+          <div class="electro-icon"><i class="fas fa-bolt"></i></div>
+          <h1 class="name">@rizddf</h1>
+        </div>
+        <div class="tagline-container">
+          <p class="tagline">Just Do It</p>
+        </div>
+      </header>
+
+      <nav class="links-container">
+        <a href="https://save-linkss.vercel.app" class="link-button" target="_blank">
+          <i class="fas fa-bookmark"></i>
+          <span>Save Links</span>
+        </a>
+        <a href="https://greenetix-boy.vercel.app" class="link-button" target="_blank">
+          <i class="fas fa-leaf"></i>
+          <span>Greenetix Boy</span>
+        </a>
+        <a href="https://tulis-digital.vercel.app" class="link-button" target="_blank">
+          <i class="fas fa-pen-nib"></i>
+          <span>Tulis Digital</span>
+        </a>
+        <a href="https://list-v.vercel.app" class="link-button" target="_blank">
+          <i class="fas fa-list-check"></i>
+          <span>List V</span>
+        </a>
+      </nav>
+
+      <!-- Social Icons Section -->
+      <div class="social-container">
+
+        <a href="https://instagram.com/rizddf" class="social-icon instagram" aria-label="instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@rizddf" class="social-icon tiktok" aria-label="tiktok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+
+      <!-- Footer Section -->
+      <footer class="footer">
+        <p>&copy; @rizddf</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
