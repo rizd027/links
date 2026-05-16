@@ -1,15 +1,15 @@
 /* CSS CUSTOM PROPERTIES (VARIABLES) */
 :root {
-  --primary: #FF6B8B;
-  --secondary: #7ED0E8;
-  --accent: #FFD166;
+  --primary: #FF5E7E;   /* Slightly deeper pink */
+  --secondary: #5BC0DE; /* Deeper blue */
+  --accent: #FFC048;    /* Deeper yellow/orange */
   --bg-light: #F8F9FF;
   --bg-dark: #2A2D43;
-  --text-primary: #333344;
+  --text-primary: #2D3436;
   --text-light: #FFFFFF;
-  --bubble-pink: #FF6B8BCC;
-  --bubble-blue: #7ED0E8CC;
-  --bubble-yellow: #FFD166CC;
+  --bubble-pink: rgba(255, 94, 126, 0.2);
+  --bubble-blue: rgba(91, 192, 222, 0.2);
+  --bubble-yellow: #FFC048; /* Solid for better visibility */
 
   /* Cartoon element colors */
   --cartoon-stroke: #333344;
@@ -26,6 +26,13 @@
   --card-bg: #FFFFFF;
 }
 
+/* Utility to disable transitions during theme switch */
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after {
+  transition: none !important;
+}
+
 /* Dark mode theme */
 .dark {
   --bg-current: var(--bg-dark);
@@ -33,6 +40,98 @@
   --card-bg: #3A3D53;
   --cartoon-stroke: #FFFFFF;
   --cloud-color: rgba(58, 61, 83, 0.9);
+}
+
+/* PRELOADER STYLES */
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-current);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease-in-out, visibility 0.6s;
+}
+
+.loader-wrapper.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader-icon {
+  font-size: 50px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  animation: loaderPulse 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px var(--accent));
+}
+
+.loader-bar {
+  width: 150px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid var(--cartoon-stroke);
+}
+
+.loader-progress {
+  width: 0%;
+  height: 100%;
+  background: var(--primary);
+  animation: progressFill 2s ease-in-out infinite;
+  position: relative;
+}
+
+.loader-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-current);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@keyframes loaderPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes progressFill {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+
+  50% {
+    width: 100%;
+    left: 0;
+  }
+
+  100% {
+    width: 0%;
+    left: 100%;
+  }
 }
 
 /* RESET & BASE STYLES */
@@ -48,7 +147,7 @@ body {
   color: var(--text-current);
   min-height: 100vh;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   line-height: 1.6;
 }
 
@@ -324,7 +423,7 @@ body {
   animation: cardEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   opacity: 0;
   transform: translateY(30px);
-  transition: background-color 0.4s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
   /* Hand-drawn style border effect */
   border: 3px solid var(--cartoon-stroke);
@@ -420,6 +519,7 @@ body {
   border: 3px dashed var(--secondary);
   border-radius: 50%;
   animation: ringRotate 20s linear infinite;
+  transition: border-color 0.4s ease-in-out;
 }
 
 @keyframes avatarFloat {
@@ -502,9 +602,9 @@ body {
   letter-spacing: 0.5px;
   background: linear-gradient(90deg,
       var(--primary) 0%,
-      var(--secondary) 25%,
-      #fff 50%,
-      var(--secondary) 75%,
+      var(--secondary) 30%,
+      var(--primary) 50%,
+      var(--secondary) 70%,
       var(--primary) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -537,6 +637,7 @@ body {
       transparent 6px,
       transparent 12px);
   border-radius: 2px;
+  transition: background 0.4s ease-in-out;
 }
 
 /* HEADER - TAGLINE SPEECH BUBBLE */
@@ -560,6 +661,7 @@ body {
   animation: taglineEntrance 0.6s ease-out 0.3s forwards;
   opacity: 0;
   transform: scale(0.8);
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out;
 }
 
 /* Speech bubble pointer */
@@ -572,6 +674,7 @@ body {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 12px solid var(--cartoon-stroke);
+  transition: border-bottom-color 0.4s ease-in-out;
 }
 
 .tagline::after {
@@ -583,6 +686,7 @@ body {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 10px solid var(--bubble-yellow);
+  transition: border-bottom-color 0.4s ease-in-out;
 }
 
 @keyframes taglineEntrance {
@@ -615,7 +719,7 @@ body {
   font-size: 15px;
   border: 2px solid var(--cartoon-stroke);
   box-shadow: var(--shadow-button);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
   opacity: 0;
@@ -645,6 +749,10 @@ body {
 
 .link-button:nth-child(6) {
   animation: linkSlideIn 0.5s ease-out 0.9s forwards, teeter 3s ease-in-out 3.5s infinite;
+}
+
+.link-button:nth-child(7) {
+  animation: linkSlideIn 0.5s ease-out 1.0s forwards, teeter 3s ease-in-out 4.0s infinite;
 }
 
 @keyframes teeter {
@@ -724,7 +832,7 @@ body {
   text-decoration: none;
   color: var(--text-current);
   font-size: 20px;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   opacity: 0;
   animation: socialPop 0.4s ease-out forwards;
 }
@@ -804,10 +912,10 @@ body {
   border-color: #CC0000;
 }
 
-.social-icon.tiktok:hover {
-  background: #000;
+.social-icon.email:hover {
+  background: #EA4335;
   color: white;
-  border-color: #000;
+  border-color: #D33426;
 }
 
 .social-icon.whatsapp:hover {
@@ -858,30 +966,69 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  z-index: 100;
-  transition: all 0.3s ease;
+  z-index: 1000;
+  transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: var(--shadow-button);
+  overflow: hidden;
 }
 
 .theme-toggle:hover {
   transform: scale(1.1) rotate(15deg);
 }
 
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle i {
+  position: absolute;
+  font-size: 24px;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  color: var(--text-current);
+}
+
 .theme-toggle .sun {
-  display: block;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 .theme-toggle .moon {
-  display: none;
+  opacity: 0;
+  transform: scale(0) rotate(-90deg);
 }
 
 .dark .theme-toggle .sun {
-  display: none;
+  opacity: 0;
+  transform: scale(0) rotate(90deg);
 }
 
 .dark .theme-toggle .moon {
-  display: block;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  color: var(--accent);
+}
+
+/* View Transitions Support */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
 }
 
 /* RESPONSIVE DESIGN */
@@ -1007,11 +1154,11 @@ body {
 .bg-icon {
   position: absolute;
   font-size: 32px;
-  opacity: 0.15;
+  opacity: 0.25;
   color: var(--text-current);
   pointer-events: none;
   z-index: 0;
-  transition: color 0.4s ease, opacity 0.4s ease;
+  transition: color 0.3s ease, opacity 0.3s ease;
   animation: floatBackgroundIcon 10s ease-in-out infinite;
 }
 
@@ -1150,5 +1297,10 @@ body {
 }
 
 .dark .bg-icon {
-  opacity: 0.2;
+  opacity: 0.35;
+}
+
+.dark {
+  --bubble-pink: rgba(255, 94, 126, 0.3);
+  --bubble-blue: rgba(91, 192, 222, 0.3);
 }

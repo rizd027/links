@@ -15,9 +15,30 @@
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23FF6B8B' d='M273 273l-97 97a7 7 0 0 1-10 0l-45-45a7 7 0 0 1 0-10l97-97a7 7 0 0 1 10 0l45 45a7 7 0 0 1 0 10zm113-145a106 106 0 0 0-150 0l-30 30a7 7 0 0 0 0 10l45 45a7 7 0 0 0 10 0l30-30a43 43 0 0 1 61 61l-105 105a43 43 0 0 1-61 0l-30-30a7 7 0 0 0-10 0l-45 45a7 7 0 0 0 0 10l30 30a106 106 0 0 0 150 0l105-105a106 106 0 0 0 0-150z'/></svg>">
 
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="loader-wrapper" id="loader">
+    <div class="loader-content">
+      <div class="loader-icon"><i class="fas fa-bolt"></i></div>
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+      <p class="loader-text">Loading...</p>
+    </div>
+  </div>
+
   <!-- Animated Background -->
   <div class="background-container">
     <!-- Bubbles -->
@@ -70,8 +91,8 @@
 
   <!-- Theme Toggle Button -->
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-    <span class="sun">☀️</span>
-    <span class="moon">🌙</span>
+    <i class="fas fa-sun sun"></i>
+    <i class="fas fa-moon moon"></i>
   </button>
 
   <!-- Main Container -->
@@ -90,26 +111,40 @@
           <h1 class="name">@rizddf</h1>
         </div>
         <div class="tagline-container">
-          <p class="tagline">Just Do It</p>
+          <p class="tagline">langit punya jalannya, bumi punya aturannya</p>
         </div>
       </header>
 
       <nav class="links-container">
-        <a href="https://save-linkss.vercel.app" class="link-button" target="_blank">
+        <a href="https://vlinktre-official.vercel.app/" class="link-button" target="_blank">
+          <i class="fas fa-paper-plane"></i>
+          <span>Vlinktre</span>
+        </a>
+        <a href="https://list-v.vercel.app/" class="link-button" target="_blank">
+          <i class="fas fa-thumbtack"></i>
+          <span>List V</span>
+        </a>
+        <a href="https://save-linkss.vercel.app/" class="link-button" target="_blank">
           <i class="fas fa-bookmark"></i>
           <span>Save Links</span>
         </a>
-        <a href="https://greenetix-boy.vercel.app" class="link-button" target="_blank">
+        <a href="https://greenetix-indonesia.vercel.app/" class="link-button" target="_blank">
           <i class="fas fa-leaf"></i>
-          <span>Greenetix Boy</span>
+          <span>Greenetix Indonesia</span>
         </a>
-        <a href="https://tulis-digital.vercel.app" class="link-button" target="_blank">
+        <a href="https://tulis-digital.vercel.app/" class="link-button" target="_blank">
           <i class="fas fa-pen-nib"></i>
           <span>Tulis Digital</span>
         </a>
-        <a href="https://list-v.vercel.app" class="link-button" target="_blank">
-          <i class="fas fa-list-check"></i>
-          <span>List V</span>
+        <a href="https://drive.google.com/drive/folders/1UUwno_qw9J0g9iwb-Beaz78Iz1Xuih1t?usp=sharing"
+          class="link-button" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <span>IG Unfollowers Finder</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1MGe4ltNuysPGw6cw8km91d40VmWMCcvn?usp=sharing"
+          class="link-button" target="_blank">
+          <i class="fas fa-camera"></i>
+          <span>VCapture</span>
         </a>
       </nav>
 
@@ -119,8 +154,9 @@
         <a href="https://instagram.com/rizddf" class="social-icon instagram" aria-label="instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.tiktok.com/@rizddf" class="social-icon tiktok" aria-label="tiktok">
-          <i class="fab fa-tiktok"></i>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=alfarizd027@gmail.com" class="social-icon email"
+          aria-label="email" target="_blank">
+          <i class="fas fa-envelope"></i>
         </a>
       </div>
 
